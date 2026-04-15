@@ -1,0 +1,213 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#sidebar {
+    width: 220px;
+    min-height: 100vh;
+    background-color: #343a40;
+    transition: margin-left 0.3s ease;
+    overflow: hidden;
+}   
+#sidebar.collapsed {
+    width: 60px;
+    transition: width 0.3s ease;
+}
+#sidebar.collapsed #spanMenu,
+#sidebar.collapsed .nav-link span,
+#sidebar.collapsed #btnLogout span {
+    display: none;
+}
+@media (max-width: 768px) {
+    #sidebar.collapsed {
+        margin-left: -100%;
+    }
+}
+#sidebar a {
+    text-decoration: none;
+}
+#sidebar a:hover {
+    background-color: #495057;
+}
+
+main{
+    margin-left: 220px;
+    transition: margin-left 0.3s ease, width 0.3s ease;
+}
+main.expanded{
+    margin-left: 0 !important;
+    width: 95%;
+}
+
+#btnLogout {
+    margin-top: 420px;
+}
+#spanMenu{
+    font-weight: bold;
+    font-style: italic;
+}
+
+.profile-pic-container {
+    position: relative;
+    display: inline-block;
+}
+.profile-pic-container img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #0d6efd; 
+}
+.profile-pic-container input[type="file"] {
+    display: none;
+}
+.profile-pic-container label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: #0d6efd;
+    color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    border: 2px solid white;
+}
+.profile-pic-container label:hover {
+    background-color: #094db3;
+}
+
+.profile-section {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 10px;
+    margin-right: 40px;
+}
+.username-display {
+    font-size: 22px;
+    font-weight: 500;
+    color: #212529;
+}
+
+.student-header {
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #8bc3fc;
+    padding: 3px 3px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.search-input {
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: 250px;
+    font-size: 15px;
+    background-color: #f8f9fa;
+    height: 38px;
+    transition: all 0.3s ease;
+}
+.search-input:focus {
+    background-color: #ffffff;
+}
+
+.gender-filter {
+    border: 2px solid #8bc3fc; 
+    border-radius: 5px;
+    height: 38px; 
+    padding: 0 12px;
+    background-color: #f8f9fa;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    color: #0d6efd;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none; 
+}
+
+
+.gender-filter:focus,
+.gender-filter:active,
+.gender-filter:focus-visible,
+.gender-filter:hover {
+    border-color: #8bc3fc;
+    box-shadow: none; 
+}
+
+.gender-dropdown .dropdown-item {
+    border: none;
+    padding: 6px 12px;
+    margin: 0;
+}
+.gender-dropdown .dropdown-item:hover {
+    background-color: #e2e6ea;
+}
+
+.search-btn{
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.overflow-auto{
+    max-height: 500px;
+}
+.table th,.table td {
+    text-align: center;
+    vertical-align: middle;
+}
+.table > :not(caption) > * > * {
+  padding-top: 0.35rem !important;
+  padding-bottom: 0.35rem !important;
+  vertical-align: middle !important;
+}
+.table .btn {
+  padding: 2px 6px !important;
+  font-size: 0.90rem !important;
+  line-height: 1 !important;
+}
+.table td, .table th {
+  font-size: 0.9rem;
+}
+.table-bordered > :not(caption) > * {
+  border-width: 1px 0;
+}
+
+.input-group .form-select {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+@media (max-width: 768px) {
+    .student-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .search-form, .gender-filter {
+        width: 100%;
+    }
+    .btn.btn-primary {
+        width: 100%;
+    }
+}
